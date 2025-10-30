@@ -5,5 +5,5 @@ databaseChangeLog:
       changes:
         - addUniqueConstraint:
             tableName: software_product
-            columnNames: name, version
-            constraintName: uq_software_product_name_version
+            columnNames: name
+            constraintName: uq_software_product_name

@@ -22,10 +22,6 @@ databaseChangeLog:
                   type: TEXT
                   remarks: "Название продукта"
               - column:
-                  name: version
-                  type: TEXT
-                  remarks: "Версия продукта (например, '2024', '11')"
-              - column:
                   name: description
                   type: TEXT
                   remarks: "Описание продукта"

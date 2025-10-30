@@ -30,9 +30,6 @@ public class SoftwareProduct {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "version")
-    private String version;
-
     @Column(name = "description")
     private String description;
 
