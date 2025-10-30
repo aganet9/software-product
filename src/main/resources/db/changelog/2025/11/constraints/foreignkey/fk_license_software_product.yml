@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: fk_license_software_product
+      author: aganethed
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: license
+            baseColumnNames: product_id
+            referencedTableName: software_product
+            referencedColumnNames: id
+            onDelete: CASCADE
+            constraintName: fk_license_software_product

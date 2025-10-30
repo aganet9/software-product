@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_developer
+      author: aganethed
+      changes:
+        - createTable:
+            tableName: developer
+            remarks: "Разработчик"
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                  remarks: "Первичный ключ"
+              - column:
+                  name: company_name
+                  type: TEXT
+                  remarks: "Юридическое название компании (например, 'Microsoft Corporation', 'The Apache Software Foundation')"

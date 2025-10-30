@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_system_requirement
+      author: aganehted
+      changes:
+        - createTable:
+            tableName: system_requirement
+            remarks: "Системные требования"
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                  remarks: "Первичный ключ"
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  remarks: "Программный продукт (FK -> SoftwareProduct)"
+              - column:
+                  name: operating_system
+                  type: TEXT
+                  remarks: "Поддерживаемая ОС (например, 'Windows 11', 'macOS 14.0', 'Ubuntu 22.04')"
+              - column:
+                  name: cpu_min
+                  type: TEXT
+                  remarks: "Требования к процессору"
+              - column:
+                  name: ram_min
+                  type: INTEGER
+                  remarks: "Объем оперативной памяти (в ГБ)"
+              - column:
+                  name: storage_min
+                  type: INTEGER
+                  remarks: "Объем свободного места на диске (в ГБ)"
+              - column:
+                  name: graphics_card
+                  type: TEXT
+                  remarks: "Требования к видеокарте"
+              - column:
+                  name: requirement_type
+                  type: TEXT
+                  remarks: "Тип требования ('Minimum' или 'Recommended')"

@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: uq_software_product_name_version
+      author: aganethed
+      changes:
+        - addUniqueConstraint:
+            tableName: software_product
+            columnNames: name, version
+            constraintName: uq_software_product_name_version

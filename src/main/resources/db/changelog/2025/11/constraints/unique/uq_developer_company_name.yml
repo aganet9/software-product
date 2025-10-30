@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: uq_developer_company_name
+      author: aganethed
+      changes:
+        - addUniqueConstraint:
+            tableName: developer
+            columnNames: company_name
+            constraintName: uq_developer_company_name

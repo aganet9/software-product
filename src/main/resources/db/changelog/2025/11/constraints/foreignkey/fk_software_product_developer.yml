@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: fk_software_product_developer
+      author: aganethed
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: software_product
+            baseColumnNames: developer_id
+            referencedTableName: developer
+            referencedColumnNames: id
+            onDelete: CASCADE
+            constraintName: fk_software_product_developer

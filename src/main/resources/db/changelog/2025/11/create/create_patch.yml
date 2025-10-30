@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_patch
+      author: aganethed
+      changes:
+        - createTable:
+            tableName: patch
+            remarks: "Обновление/патч"
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                  remarks: "Первичный ключ"
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  remarks: "Программный продукт (FK -> SoftwareProduct)"
+              - column:
+                  name: update_version
+                  type: TEXT
+                  remarks: "Версия обновления (например, 'Security Update 2024-001', 'Version 1.2.3')"
+              - column:
+                  name: release_date
+                  type: DATE
+                  remarks: "Дата выпуска обновления"
+              - column:
+                  name: changelog
+                  type: TEXT
+                  remarks: "Описание внесенных изменений и исправлений"
+              - column:
+                  name: critical_level
+                  type: TEXT
+                  remarks: "Критичность обновления (например, 'Critical', 'Important', 'Optional')"

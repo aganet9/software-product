@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: Software Product
+
+  datasource:
+    url: jdbc:postgresql://localhost:5555/software
+    username: user
+    password: pass
+
+  liquibase:
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+vaadin:
+  launch-browser: true

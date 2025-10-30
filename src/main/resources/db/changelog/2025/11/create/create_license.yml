@@ -1,0 +1,31 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_license
+      author: aganethed
+      changes:
+        - createTable:
+            tableName: license
+            remarks: "Лицензия"
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                  remarks: "Первичный ключ"
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  remarks: "Программный продукт (FK -> SoftwareProduct)"
+              - column:
+                  name: type
+                  type: TEXT
+                  remarks: "Тип лицензии (например, 'Perpetual', 'Subscription', 'GPL', 'MIT')"
+              - column:
+                  name: cost
+                  type: DECIMAL
+                  remarks: "Стоимость лицензии"
+              - column:
+                  name: purchase_date
+                  type: DATE
+                  remarks: "Дата приобретения"

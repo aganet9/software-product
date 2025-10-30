@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_software_product
+      author: aganethed
+      changes:
+        - createTable:
+            tableName: software_product
+            remarks: "Программный продукт"
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                  remarks: "Первичный ключ"
+              - column:
+                  name: developer_id
+                  type: BIGINT
+                  remarks: "Разработчик (FK -> Developer)"
+              - column:
+                  name: name
+                  type: TEXT
+                  remarks: "Название продукта"
+              - column:
+                  name: version
+                  type: TEXT
+                  remarks: "Версия продукта (например, '2024', '11')"
+              - column:
+                  name: description
+                  type: TEXT
+                  remarks: "Описание продукта"
+              - column:
+                  name: release_date
+                  type: DATE
+                  remarks: "Дата официального выпуска"
+              - column:
+                  name: software_type
+                  type: TEXT
+                  remarks: "Тип ПО (например, 'Application', 'System', 'Development Tool')"
+              - column:
+                  name: distribution_model
+                  type: TEXT
+                  remarks: "Модель распространения (например, 'Commercial', 'Open Source', 'Freemium')"

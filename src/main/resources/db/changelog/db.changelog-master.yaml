@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - includeAll:
+      path: db/changelog/2025/11/create
+  - includeAll:
+      path: db/changelog/2025/11/constraints

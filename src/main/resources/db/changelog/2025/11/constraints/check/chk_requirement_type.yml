@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: chk_requirement_type
+      author: aganethed
+      changes:
+        - sql: |
+            ALTER TABLE system_requirement
+            ADD CONSTRAINT chk_requirement_type
+            CHECK (requirement_type IN ('Minimum', 'Recommended'));

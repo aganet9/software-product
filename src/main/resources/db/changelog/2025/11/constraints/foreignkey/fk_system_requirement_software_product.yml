@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: fk_system_requirement_software_product
+      author: aganethed
+      changes:
+        - addForeignKeyConstraint:
+            baseTableName: system_requirement
+            baseColumnNames: product_id
+            referencedTableName: software_product
+            referencedColumnNames: id
+            onDelete: CASCADE
+            constraintName: fk_system_requirement_software_product
