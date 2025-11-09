@@ -11,11 +11,13 @@ public interface LicenseMapper {
     @Mapping(target = "product", ignore = true)
     @Mapping(target = "id", ignore = true)
     License toEntityForm(LicenseForm licenseForm);
+
     @Mapping(target = "productName", source = "product.name")
     LicenseForm toForm(License license);
 
     @Mapping(target = "product", ignore = true)
     License toEntityGrid(LicenseGrid licenseGrid);
+
     @Mapping(target = "productName", source = "product.name")
     LicenseGrid toGrid(License license);
 }

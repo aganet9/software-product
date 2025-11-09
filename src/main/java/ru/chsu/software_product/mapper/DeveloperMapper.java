@@ -2,6 +2,7 @@ package ru.chsu.software_product.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import org.mapstruct.Named;
 import ru.chsu.software_product.model.dto.DeveloperForm;
 import ru.chsu.software_product.model.dto.DeveloperGrid;
@@ -17,6 +18,10 @@ public interface DeveloperMapper {
     @Mapping(target = "softwareProducts", ignore = true)
     @Mapping(target = "id", ignore = true)
     Developer toEntityForm(DeveloperForm developerForm);
+
+    @Mapping(target = "softwareProducts", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    void updateFromForm(DeveloperForm developerForm, @MappingTarget Developer developer);
 
     @Mapping(target = "productNames", source = "softwareProducts", qualifiedByName = "mapToProductsList")
     DeveloperGrid toGrid(Developer developer);

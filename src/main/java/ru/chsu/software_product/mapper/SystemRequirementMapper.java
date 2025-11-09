@@ -11,11 +11,13 @@ public interface SystemRequirementMapper {
     @Mapping(target = "product", ignore = true)
     @Mapping(target = "id", ignore = true)
     SystemRequirement toEntityForm(SystemRequirementForm systemRequirementForm);
+
     @Mapping(target = "productName", source = "product.name")
     SystemRequirementForm toForm(SystemRequirement systemRequirement);
 
     @Mapping(target = "product", ignore = true)
     SystemRequirement toEntityGrid(SystemRequirementGrid systemRequirementForm);
+
     @Mapping(target = "productName", source = "product.name")
     SystemRequirementGrid toGrid(SystemRequirement systemRequirement);
 }

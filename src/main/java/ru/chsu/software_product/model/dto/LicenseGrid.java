@@ -2,11 +2,16 @@ package ru.chsu.software_product.model.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class LicenseGrid extends LicenseForm {
+public class LicenseGrid {
     @NotNull
     private Long id;
+    protected String productName;
+    protected String type;
+    protected BigDecimal cost;
+    protected LocalDate purchaseDate;
 }

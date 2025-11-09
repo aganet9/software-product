@@ -2,11 +2,17 @@ package ru.chsu.software_product.model.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import java.time.LocalDate;
 
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class SoftwareProductGrid extends SoftwareProductForm {
+public class SoftwareProductGrid {
     @NotNull
     private Long id;
+    protected String developerCompanyName;
+    protected String name;
+    protected String description;
+    protected LocalDate releaseDate;
+    protected String softwareType;
+    protected String distributionModel;
 }
