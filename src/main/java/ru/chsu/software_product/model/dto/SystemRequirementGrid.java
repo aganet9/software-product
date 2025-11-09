@@ -2,6 +2,7 @@ package ru.chsu.software_product.model.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import ru.chsu.software_product.model.RequirementType;
 
 @Data
 public class SystemRequirementGrid {
@@ -13,5 +14,5 @@ public class SystemRequirementGrid {
     protected Integer ramMin;
     protected Integer storageMin;
     protected String graphicsCard;
-    protected String requirementType;
+    protected RequirementType requirementType;
 }

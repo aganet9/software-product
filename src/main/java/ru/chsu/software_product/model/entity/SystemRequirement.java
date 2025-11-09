@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.proxy.HibernateProxy;
+import ru.chsu.software_product.model.RequirementType;
 
 import java.util.Objects;
 
@@ -39,8 +40,9 @@ public class SystemRequirement {
     @Column(name = "graphics_card")
     private String graphicsCard;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "requirement_type")
-    private String requirementType;
+    private RequirementType requirementType;
 
     @Override
     public final boolean equals(Object o) {
