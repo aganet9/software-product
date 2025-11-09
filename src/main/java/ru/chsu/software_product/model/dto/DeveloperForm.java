@@ -3,11 +3,8 @@ package ru.chsu.software_product.model.dto;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
-public class DeveloperResponse {
+public class DeveloperForm {
     @NotBlank
-    private String companyName;
-    private List<String> productNames;
+    protected String companyName;
 }

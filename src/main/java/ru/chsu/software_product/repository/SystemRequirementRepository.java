@@ -7,7 +7,7 @@ import ru.chsu.software_product.model.entity.SystemRequirement;
 
 import java.util.List;
 
-public interface SystemRequirementRepository extends JpaRepository<SystemRequirement, Integer> {
+public interface SystemRequirementRepository extends JpaRepository<SystemRequirement, Long> {
     @NotNull
     @EntityGraph(attributePaths = {"product"})
     List<SystemRequirement> findAll();

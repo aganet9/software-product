@@ -7,17 +7,17 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class SoftwareProductDto {
+public class SoftwareProductForm {
     @NotBlank
-    private String developerCompanyName;
+    protected String developerCompanyName;
     @NotBlank
-    private String name;
+    protected String name;
     @NotBlank
-    private String description;
+    protected String description;
     @NotNull
-    private LocalDate releaseDate;
+    protected LocalDate releaseDate;
     @NotBlank
-    private String softwareType;
+    protected String softwareType;
     @NotBlank
-    private String distributionModel;
+    protected String distributionModel;
 }

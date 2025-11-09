@@ -4,16 +4,18 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Data
-public class LicenseDto {
+public class PatchForm {
     @NotBlank
-    private String productName;
+    protected String productName;
     @NotBlank
-    private String type;
+    protected String updateVersion;
     @NotNull
-    private BigDecimal cost;
-    private LocalDate purchaseDate;
+    protected LocalDate releaseDate;
+    @NotBlank
+    protected String changelog;
+    @NotBlank
+    protected String criticalLevel;
 }
