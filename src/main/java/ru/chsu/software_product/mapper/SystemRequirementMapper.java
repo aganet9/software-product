@@ -2,6 +2,7 @@ package ru.chsu.software_product.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import ru.chsu.software_product.model.dto.SystemRequirementForm;
 import ru.chsu.software_product.model.dto.SystemRequirementGrid;
 import ru.chsu.software_product.model.entity.SystemRequirement;
@@ -14,6 +15,10 @@ public interface SystemRequirementMapper {
 
     @Mapping(target = "productName", source = "product.name")
     SystemRequirementForm toForm(SystemRequirement systemRequirement);
+
+    @Mapping(target = "product", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    void updateFromForm(SystemRequirementForm systemRequirementForm, @MappingTarget SystemRequirement systemRequirement);
 
     @Mapping(target = "product", ignore = true)
     SystemRequirement toEntityGrid(SystemRequirementGrid systemRequirementForm);

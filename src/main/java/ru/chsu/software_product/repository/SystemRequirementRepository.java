@@ -6,9 +6,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import ru.chsu.software_product.model.entity.SystemRequirement;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SystemRequirementRepository extends JpaRepository<SystemRequirement, Long> {
     @NotNull
     @EntityGraph(attributePaths = {"product"})
     List<SystemRequirement> findAll();
+
+    @EntityGraph(attributePaths = {"product"})
+    @NotNull Optional<SystemRequirement> findById(@NotNull Long id);
 }

@@ -17,4 +17,6 @@ public interface SoftwareProductRepository extends JpaRepository<SoftwareProduct
     @NotNull Optional<SoftwareProduct> findById(@NotNull Long id);
 
     boolean existsSoftwareProductByName(String name);
+
+    Optional<SoftwareProduct> findByName(@NotNull String name);
 }

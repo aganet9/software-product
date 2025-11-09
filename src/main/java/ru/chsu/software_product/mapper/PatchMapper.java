@@ -2,6 +2,7 @@ package ru.chsu.software_product.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
 import ru.chsu.software_product.model.dto.PatchForm;
 import ru.chsu.software_product.model.dto.PatchGrid;
 import ru.chsu.software_product.model.entity.Patch;
@@ -14,6 +15,10 @@ public interface PatchMapper {
 
     @Mapping(target = "productName", source = "product.name")
     PatchForm toForm(Patch patch);
+
+    @Mapping(target = "product", ignore = true)
+    @Mapping(target = "id", ignore = true)
+    void updateFromForm(PatchForm patchForm, @MappingTarget Patch patch);
 
     @Mapping(target = "product", ignore = true)
     Patch toEntityGrid(PatchGrid patchForm);
