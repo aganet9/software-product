@@ -8,14 +8,14 @@ import java.time.LocalDate;
 
 @Data
 public class PatchForm {
-    @NotBlank
+    @NotBlank(message = "Введите название продукта")
     protected String productName;
-    @NotBlank
+    @NotBlank(message = "Введите версию обновления")
     protected String updateVersion;
-    @NotNull
+    @NotNull(message = "Введите дату выпуска")
     protected LocalDate releaseDate;
-    @NotBlank
+    @NotBlank(message = "Введите описание изменений")
     protected String changelog;
-    @NotBlank
+    @NotBlank(message = "Введите критичность обновления")
     protected String criticalLevel;
 }

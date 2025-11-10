@@ -4,6 +4,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.notification.NotificationVariant;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 @Component
 public class ExceptionHandler {
@@ -36,6 +37,9 @@ public class ExceptionHandler {
                 case SystemRequirementNotFoundException systemRequirementNotFoundException ->
                         Notification.show(ex.getMessage(), 5000, Notification.Position.BOTTOM_CENTER)
                                 .addThemeVariants(NotificationVariant.LUMO_WARNING);
+                case MethodArgumentNotValidException methodArgumentNotValidException ->
+                    Notification.show(ex.getMessage(), 5000, Notification.Position.BOTTOM_CENTER)
+                            .addThemeVariants(NotificationVariant.LUMO_ERROR);
                 default -> Notification.show("Произошла непредвиденная ошибка: " + ex.getMessage(),
                         5000, Notification.Position.BOTTOM_CENTER)
                         .addThemeVariants(NotificationVariant.LUMO_ERROR);

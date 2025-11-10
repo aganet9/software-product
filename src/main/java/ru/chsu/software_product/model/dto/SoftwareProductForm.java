@@ -8,16 +8,16 @@ import java.time.LocalDate;
 
 @Data
 public class SoftwareProductForm {
-    @NotBlank
+    @NotBlank(message = "Введите название разработчика")
     protected String developerCompanyName;
-    @NotBlank
+    @NotBlank(message = "Введите название продукта")
     protected String name;
-    @NotBlank
+    @NotBlank(message = "Введите описание")
     protected String description;
-    @NotNull
+    @NotNull(message = "Введите дату выпуска")
     protected LocalDate releaseDate;
-    @NotBlank
+    @NotBlank(message = "Введите тип ПО")
     protected String softwareType;
-    @NotBlank
+    @NotBlank(message = "Введите модель распространения")
     protected String distributionModel;
 }

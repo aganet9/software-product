@@ -1,5 +1,6 @@
 package ru.chsu.software_product.model.dto;
 
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -7,18 +8,20 @@ import ru.chsu.software_product.model.RequirementType;
 
 @Data
 public class SystemRequirementForm {
-    @NotBlank
+    @NotBlank(message = "Введите название продукта")
     protected String productName;
-    @NotBlank
+    @NotBlank(message = "Введите ОС")
     protected String operatingSystem;
-    @NotBlank
+    @NotBlank(message = "Введите требования к процессору")
     protected String cpuMin;
-    @NotNull
+    @NotNull(message = "Введите объем оперативной памяти")
+    @Min(value = 0, message = "Объем оперативной памяти не может быть меньше 0")
     protected Integer ramMin;
-    @NotNull
+    @NotNull(message = "Введите объем свободного места на диске")
+    @Min(value = 0, message = "Объем свободного места на диске не может быть меньше 0")
     protected Integer storageMin;
-    @NotBlank
+    @NotBlank(message = "Введите требования к видеокарте")
     protected String graphicsCard;
-    @NotNull
+    @NotNull(message = "Введите тип требования")
     protected RequirementType requirementType;
 }
