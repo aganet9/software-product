@@ -1,13 +1,11 @@
 package ru.chsu.software_product.ui.view;
 
-import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.confirmdialog.ConfirmDialog;
 import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.grid.Grid;
-import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.FlexComponent;
@@ -23,10 +21,8 @@ import ru.chsu.software_product.model.dto.SoftwareProductForm;
 import ru.chsu.software_product.model.dto.SoftwareProductGrid;
 import ru.chsu.software_product.service.DeveloperService;
 import ru.chsu.software_product.service.SoftwareProductService;
-import ru.chsu.software_product.ui.component.ViewToolbar;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 @Route("products")
 @PageTitle("Программное обеспечение")
