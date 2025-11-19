@@ -22,6 +22,9 @@ public class Developer {
     @Column(name = "company_name")
     private String companyName;
 
+    @Column(name = "description")
+    private String description;
+
     @OneToMany(mappedBy = "developer", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SoftwareProduct> softwareProducts = new ArrayList<>();
 

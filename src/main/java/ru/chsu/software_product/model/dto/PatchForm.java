@@ -9,13 +9,13 @@ import java.time.LocalDate;
 @Data
 public class PatchForm {
     @NotBlank(message = "Введите название продукта")
-    protected String productName;
+    private String productName;
     @NotBlank(message = "Введите версию обновления")
-    protected String updateVersion;
+    private String updateVersion;
     @NotNull(message = "Введите дату выпуска")
-    protected LocalDate releaseDate;
+    private LocalDate releaseDate;
     @NotBlank(message = "Введите описание изменений")
-    protected String changelog;
+    private String changelog;
     @NotBlank(message = "Введите критичность обновления")
-    protected String criticalLevel;
+    private String criticalLevel;
 }

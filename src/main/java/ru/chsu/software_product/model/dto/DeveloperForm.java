@@ -6,5 +6,7 @@ import lombok.Data;
 @Data
 public class DeveloperForm {
     @NotBlank(message = "Введите название компании")
-    protected String companyName;
+    private String companyName;
+    @NotBlank(message = "Введите описание компании")
+    private String description;
 }

@@ -17,3 +17,7 @@ databaseChangeLog:
                   name: company_name
                   type: TEXT
                   remarks: "Юридическое название компании (например, 'Microsoft Corporation', 'The Apache Software Foundation')"
+              - column:
+                  name: description
+                  type: TEXT
+                  remarks: "Описание компании"

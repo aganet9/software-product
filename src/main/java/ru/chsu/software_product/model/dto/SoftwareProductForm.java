@@ -9,15 +9,15 @@ import java.time.LocalDate;
 @Data
 public class SoftwareProductForm {
     @NotBlank(message = "Введите название разработчика")
-    protected String developerCompanyName;
+    private String developerCompanyName;
     @NotBlank(message = "Введите название продукта")
-    protected String name;
+    private String name;
     @NotBlank(message = "Введите описание")
-    protected String description;
+    private String description;
     @NotNull(message = "Введите дату выпуска")
-    protected LocalDate releaseDate;
+    private LocalDate releaseDate;
     @NotBlank(message = "Введите тип ПО")
-    protected String softwareType;
+    private String softwareType;
     @NotBlank(message = "Введите модель распространения")
-    protected String distributionModel;
+    private String distributionModel;
 }

@@ -5,13 +5,30 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
-public class LicenseGrid {
+public class LicenseGrid implements GetterId<Long> {
     @NotNull
     private Long id;
-    protected String productName;
-    protected String type;
-    protected BigDecimal cost;
-    protected LocalDate purchaseDate;
+    private String productName;
+    private String type;
+    private BigDecimal cost;
+    private LocalDate purchaseDate;
+
+    @Override
+    public String toString() {
+        return type;
+    }
+
+    @Override
+    public List<String> searchableFields() {
+        return List.of(
+                id == null ? "" : id.toString(),
+                productName == null ? "" : productName,
+                type == null ? "" : type,
+                cost == null ? "" : cost.toString(),
+                purchaseDate == null ? "" : purchaseDate.toString()
+        );
+    }
 }

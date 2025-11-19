@@ -6,4 +6,4 @@ databaseChangeLog:
         - sql: |
             ALTER TABLE system_requirement
             ADD CONSTRAINT chk_requirement_type
-            CHECK (requirement_type IN ('Минимальные', 'Рекомендованные'));
+            CHECK (requirement_type IN ('MINIMUM', 'RECOMMENDED'));

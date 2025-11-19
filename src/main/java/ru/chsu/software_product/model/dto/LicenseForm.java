@@ -10,13 +10,13 @@ import java.time.LocalDate;
 
 @Data
 public class LicenseForm {
-    @NotBlank(message = "Введити название продукта")
-    protected String productName;
+    @NotBlank(message = "Введите название продукта")
+    private String productName;
     @NotBlank(message = "Введите тип лицензии")
-    protected String type;
+    private String type;
     @NotNull(message = "Введите цену лицензии")
     @Min(value = 0, message = "Цена лицензии не может быть меньше 0")
-    protected BigDecimal cost;
+    private BigDecimal cost;
     @NotNull(message = "Введите дату приобретения")
-    protected LocalDate purchaseDate;
+    private LocalDate purchaseDate;
 }
