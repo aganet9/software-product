@@ -13,6 +13,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.chsu.software_product.exception.ExceptionHandler;
 import ru.chsu.software_product.model.dto.DeveloperForm;
 import ru.chsu.software_product.model.dto.DeveloperGrid;
@@ -24,9 +25,10 @@ import java.util.Comparator;
 @PageTitle("Разработчики")
 @Menu(order = 0, icon = "vaadin:clipboard-check", title = "Разработчики")
 public class DeveloperView extends BaseCrudView<DeveloperGrid, DeveloperForm, Long> {
-    private final DeveloperService developerService;
-    private final ExceptionHandler exceptionHandler;
+    private final transient DeveloperService developerService;
+    private final transient ExceptionHandler exceptionHandler;
 
+    @Autowired
     public DeveloperView(DeveloperService developerService, ExceptionHandler exceptionHandler) {
         this.developerService = developerService;
         this.exceptionHandler = exceptionHandler;
@@ -66,17 +68,16 @@ public class DeveloperView extends BaseCrudView<DeveloperGrid, DeveloperForm, Lo
 
     @Override
     protected void openCreateDialog() {
-        openDeveloperDialog(null);
+        openDialog(null);
     }
 
     @Override
     protected void openUpdateDialog() {
         if (currentItem == null) return;
-
-        openDeveloperDialog(currentItem);
+        openDialog(currentItem);
     }
 
-    private void openDeveloperDialog(DeveloperGrid existingGrid) {
+    private void openDialog(DeveloperGrid existingGrid) {
         boolean isUpdate = (existingGrid != null);
         Dialog dialog = new Dialog();
         if (isUpdate) {
@@ -85,11 +86,8 @@ public class DeveloperView extends BaseCrudView<DeveloperGrid, DeveloperForm, Lo
             dialog.setHeaderTitle("Создать разработчика");
         }
 
-        TextField companyNameField = new TextField("Название компании");
-        companyNameField.setRequired(true);
-        companyNameField.setErrorMessage("Обязательное поле");
+        TextField companyNameField = createTextField("Название компании");
         if (isUpdate) companyNameField.setValue(existingGrid.getCompanyName());
-        companyNameField.setWidthFull();
 
         final Long id = isUpdate ? existingGrid.getId() : null;
 

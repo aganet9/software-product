@@ -15,6 +15,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 import ru.chsu.software_product.exception.ExceptionHandler;
 import ru.chsu.software_product.model.dto.DeveloperGrid;
 import ru.chsu.software_product.model.dto.SoftwareProductForm;
@@ -22,16 +23,15 @@ import ru.chsu.software_product.model.dto.SoftwareProductGrid;
 import ru.chsu.software_product.service.DeveloperService;
 import ru.chsu.software_product.service.SoftwareProductService;
 
-import java.time.LocalDate;
-
 @Route("products")
 @PageTitle("Программное обеспечение")
 @Menu(order = 1, icon = "vaadin:clipboard-check", title = "Программное обеспечение")
 public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, SoftwareProductForm, Long> {
-    private final SoftwareProductService softwareProductService;
-    private final ExceptionHandler exceptionHandler;
-    private final DeveloperService developerService;
+    private final transient SoftwareProductService softwareProductService;
+    private final transient ExceptionHandler exceptionHandler;
+    private final transient DeveloperService developerService;
 
+    @Autowired
     public SoftwareProductView(SoftwareProductService softwareProductService,
                                ExceptionHandler exceptionHandler,
                                DeveloperService developerService) {
@@ -93,16 +93,7 @@ public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, Softw
 
     @Override
     protected void openCreateDialog() {
-        openProductDialog(null);
-    }
-
-    private TextField createTextField(String text) {
-        TextField textField = new TextField(text);
-        textField.setRequired(true);
-        textField.setErrorMessage("Обязательное поле");
-        textField.setWidthFull();
-        textField.setPlaceholder("Введите " + text.toLowerCase() + "...");
-        return textField;
+        openDialog(null);
     }
 
     private void saveProduct(Dialog dialog,
@@ -140,10 +131,10 @@ public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, Softw
     @Override
     protected void openUpdateDialog() {
         if (currentItem == null) return;
-        openProductDialog(currentItem);
+        openDialog(currentItem);
     }
 
-    private void openProductDialog(SoftwareProductGrid existingProduct) {
+    private void openDialog(SoftwareProductGrid existingProduct) {
         boolean isUpdate = (existingProduct != null);
         Dialog dialog = new Dialog();
         if (isUpdate) {
@@ -157,26 +148,16 @@ public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, Softw
                 .map(DeveloperGrid::getCompanyName)
                 .sorted()
                 .toList());
-        cbCompanyName.setErrorMessage("Обязательное поле");
-        cbCompanyName.setRequired(true);
-        cbCompanyName.setPlaceholder("Выберите разработчика...");
-        cbCompanyName.setWidthFull();
+        configureComboBox(cbCompanyName);
         if (isUpdate) cbCompanyName.setValue(existingProduct.getDeveloperCompanyName());
 
         TextField productName = createTextField("Название продукта");
         if (isUpdate) productName.setValue(existingProduct.getName());
+
         TextField productDescription = createTextField("Описание продукта");
         if (isUpdate) productDescription.setValue(existingProduct.getDescription());
 
-        DatePicker dpReleaseDate = new DatePicker("Дата выпуска");
-        dpReleaseDate.setRequired(true);
-        dpReleaseDate.setPlaceholder("Выберите дату выпуска...");
-        dpReleaseDate.setWidthFull();
-        dpReleaseDate.setMax(LocalDate.now());
-        dpReleaseDate.setI18n(new DatePicker.DatePickerI18n()
-                .setBadInputErrorMessage("Неверный формат даты")
-                .setRequiredErrorMessage("Обязательное поле")
-                .setMaxErrorMessage("Дата превышает настоящую"));
+        DatePicker dpReleaseDate = createDatePicker("Дата выпуска");
         if (isUpdate) dpReleaseDate.setValue(existingProduct.getReleaseDate());
 
         TextField productSoftwareType = createTextField("Тип ПО");
@@ -198,19 +179,12 @@ public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, Softw
 
         VerticalLayout dialogField = new VerticalLayout(cbCompanyName, productName, productDescription, dpReleaseDate,
                 productSoftwareType, productDistributionModel);
-        dialogField.setMargin(true);
-        dialogField.setSpacing(true);
-        dialogField.setPadding(false);
-
         VerticalLayout content = new VerticalLayout(dialogField, buttons);
-        content.setMargin(true);
-        content.setSpacing(true);
-        dialogField.setPadding(false);
+        configureVerticalLayouts(dialogField, content);
 
         dialog.add(content);
         dialog.setWidthFull();
         dialog.open();
-        cbCompanyName.focus();
     }
 
     @Override
@@ -239,7 +213,6 @@ public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, Softw
                 exceptionHandler.handleException(ex);
             }
         });
-
         confirmDialog.open();
     }
 }

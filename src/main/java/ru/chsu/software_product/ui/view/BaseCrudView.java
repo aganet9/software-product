@@ -2,10 +2,16 @@ package ru.chsu.software_product.ui.view;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Main;
 import com.vaadin.flow.component.icon.VaadinIcon;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import ru.chsu.software_product.ui.component.ViewToolbar;
+
+import java.time.LocalDate;
 
 public abstract class BaseCrudView<GRID, FORM, ID> extends Main {
     protected Grid<GRID> grid;
@@ -58,5 +64,43 @@ public abstract class BaseCrudView<GRID, FORM, ID> extends Main {
             setButtonsEnabled(hasSelection);
             currentItem = e.getFirstSelectedItem().orElse(null);
         });
+    }
+
+    protected void configureComboBox(ComboBox<?> comboBox) {
+        comboBox.setErrorMessage("Обязательное поле");
+        comboBox.setRequired(true);
+        comboBox.setPlaceholder("Выберите...");
+        comboBox.setWidthFull();
+        comboBox.focus();
+    }
+
+    protected void configureVerticalLayouts(VerticalLayout ...verticalLayouts) {
+        for (VerticalLayout vl : verticalLayouts) {
+            vl.setMargin(true);
+            vl.setSpacing(true);
+            vl.setPadding(false);
+        }
+    }
+
+    protected DatePicker createDatePicker(String title) {
+        DatePicker datePicker = new DatePicker(title);
+        datePicker.setRequired(true);
+        datePicker.setPlaceholder("Выберите дату...");
+        datePicker.setWidthFull();
+        datePicker.setMax(LocalDate.now());
+        datePicker.setI18n(new DatePicker.DatePickerI18n()
+                .setBadInputErrorMessage("Неверный формат даты")
+                .setRequiredErrorMessage("Обязательное поле")
+                .setMaxErrorMessage("Дата превышает настоящую"));
+        return datePicker;
+    }
+
+    protected TextField createTextField(String text) {
+        TextField textField = new TextField(text);
+        textField.setRequired(true);
+        textField.setErrorMessage("Обязательное поле");
+        textField.setWidthFull();
+        textField.setPlaceholder("Введите " + text.toLowerCase() + "...");
+        return textField;
     }
 }
