@@ -14,12 +14,13 @@ import ru.chsu.software_product.model.dto.SoftwareProductForm;
 import ru.chsu.software_product.model.dto.SoftwareProductGrid;
 import ru.chsu.software_product.service.DeveloperService;
 import ru.chsu.software_product.service.SoftwareProductService;
+import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 
 @Route("products")
 @PageTitle("Программное обеспечение")
 @Menu(order = 1, icon = "vaadin:clipboard-check", title = "Программное обеспечение")
 public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, SoftwareProductForm, Long, SoftwareProductService> {
-    private final DeveloperService developerService;
+    private final transient DeveloperService developerService;
 
     @Autowired
     public SoftwareProductView(SoftwareProductService softwareProductService,

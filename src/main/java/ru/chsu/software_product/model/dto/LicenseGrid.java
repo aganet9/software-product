@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class LicenseGrid implements GetterId<Long> {
+public class LicenseGrid implements GridAPI<Long> {
     @NotNull
     private Long id;
     private String productName;

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class SoftwareProductGrid implements GetterId<Long> {
+public class SoftwareProductGrid implements GridAPI<Long> {
     @NotNull
     private Long id;
     private String developerCompanyName;

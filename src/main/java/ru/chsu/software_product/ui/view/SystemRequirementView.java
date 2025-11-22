@@ -15,13 +15,14 @@ import ru.chsu.software_product.model.dto.SystemRequirementForm;
 import ru.chsu.software_product.model.dto.SystemRequirementGrid;
 import ru.chsu.software_product.service.SoftwareProductService;
 import ru.chsu.software_product.service.SystemRequirementService;
+import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 
 @Route("systemRequirements")
 @PageTitle("Системные требования")
 @Menu(order = 4, icon = "vaadin:clipboard-check", title = "Системные требования")
 public class SystemRequirementView extends BaseCrudView<SystemRequirementGrid, SystemRequirementForm, Long,
         SystemRequirementService> {
-    private final SoftwareProductService softwareProductService;
+    private final transient SoftwareProductService softwareProductService;
 
     @Autowired
     public SystemRequirementView(SystemRequirementService systemRequirementService,

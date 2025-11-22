@@ -14,12 +14,13 @@ import ru.chsu.software_product.model.dto.PatchGrid;
 import ru.chsu.software_product.model.dto.SoftwareProductGrid;
 import ru.chsu.software_product.service.PatchService;
 import ru.chsu.software_product.service.SoftwareProductService;
+import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 
 @Route("patches")
 @PageTitle("Обновления")
 @Menu(order = 2, icon = "vaadin:clipboard-check", title = "Обновления")
 public class PatchView extends BaseCrudView<PatchGrid, PatchForm, Long, PatchService> {
-    private final SoftwareProductService softwareProductService;
+    private final transient SoftwareProductService softwareProductService;
 
     @Autowired
     public PatchView(PatchService patchService,

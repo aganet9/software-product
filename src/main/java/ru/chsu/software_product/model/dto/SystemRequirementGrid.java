@@ -7,7 +7,7 @@ import ru.chsu.software_product.model.RequirementType;
 import java.util.List;
 
 @Data
-public class SystemRequirementGrid implements GetterId<Long> {
+public class SystemRequirementGrid implements GridAPI<Long> {
     @NotNull
     private Long id;
     private String productName;

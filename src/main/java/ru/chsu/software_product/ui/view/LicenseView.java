@@ -16,14 +16,14 @@ import ru.chsu.software_product.model.dto.LicenseGrid;
 import ru.chsu.software_product.model.dto.SoftwareProductGrid;
 import ru.chsu.software_product.service.LicenseService;
 import ru.chsu.software_product.service.SoftwareProductService;
-
 import java.math.BigDecimal;
+import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 
 @Route("licenses")
 @PageTitle("Лицензии")
 @Menu(order = 2, icon = "vaadin:clipboard-check", title = "Лицензии")
 public class LicenseView extends BaseCrudView<LicenseGrid, LicenseForm, Long, LicenseService> {
-    private final SoftwareProductService softwareProductService;
+    private final transient SoftwareProductService softwareProductService;
 
     @Autowired
     public LicenseView(LicenseService licenseService,

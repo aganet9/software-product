@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public class PatchGrid implements GetterId<Long> {
+public class PatchGrid implements GridAPI<Long> {
     @NotNull
     private Long id;
     private String productName;

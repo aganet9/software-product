@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class DeveloperGrid implements GetterId<Long> {
+public class DeveloperGrid implements GridAPI<Long> {
     @NotNull
     private Long id;
     private String companyName;
