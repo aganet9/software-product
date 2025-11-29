@@ -1,0 +1,104 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_developer_seed_v2
+      author: aganethed
+      changes:
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "JetBrains s.r.o."
+              - column:
+                  name: description
+                  value: "Разработчик инструментов для разработчиков, в т.ч. IntelliJ IDEA."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "The Apache Software Foundation"
+              - column:
+                  name: description
+                  value: "НКО, поддерживающая проекты с открытым исходным кодом."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "Microsoft Corporation"
+              - column:
+                  name: description
+                  value: "Производитель ПО, облаков и устройств."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "Oracle Corporation"
+              - column:
+                  name: description
+                  value: "Поставщик СУБД и корпоративного ПО."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "Google LLC"
+              - column:
+                  name: description
+                  value: "Компания, развивающая Android, Chrome, Kubernetes и др."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "Red Hat, Inc."
+              - column:
+                  name: description
+                  value: "Поставщик open-source решений, RHEL, OpenShift и др."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "Docker, Inc."
+              - column:
+                  name: description
+                  value: "Контейнеризация и инструменты для DevOps."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "GitHub, Inc."
+              - column:
+                  name: description
+                  value: "Платформа для хостинга кода и CI/CD (Actions)."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "Canonical Ltd."
+              - column:
+                  name: description
+                  value: "Компания, поддерживающая Ubuntu и экосистему Linux."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "Atlassian Pty Ltd"
+              - column:
+                  name: description
+                  value: "Производитель Jira, Confluence, Bitbucket."
+        - insert:
+            tableName: developer
+            columns:
+              - column:
+                  name: company_name
+                  value: "HashiCorp, Inc."
+              - column:
+                  name: description
+                  value: "Terraform, Vault, Consul и др. инструменты инфраструктуры."

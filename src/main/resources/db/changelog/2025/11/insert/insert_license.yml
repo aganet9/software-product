@@ -1,0 +1,185 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_license_seed_v2
+      author: aganethed
+      changes:
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'IntelliJ IDEA')"
+              - column:
+                  name: type
+                  value: "Subscription"
+              - column:
+                  name: cost
+                  valueNumeric: 149.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2024-05-10"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'PyCharm')"
+              - column:
+                  name: type
+                  value: "Subscription"
+              - column:
+                  name: cost
+                  valueNumeric: 99.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2024-06-10"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Apache Maven')"
+              - column:
+                  name: type
+                  value: "Apache-2.0"
+              - column:
+                  name: cost
+                  valueNumeric: 0.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2020-01-01"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Apache Kafka')"
+              - column:
+                  name: type
+                  value: "Apache-2.0"
+              - column:
+                  name: cost
+                  valueNumeric: 0.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2021-03-15"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Visual Studio Code')"
+              - column:
+                  name: type
+                  value: "MIT"
+              - column:
+                  name: cost
+                  valueNumeric: 0.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2024-01-01"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Microsoft SQL Server')"
+              - column:
+                  name: type
+                  value: "Per-Server"
+              - column:
+                  name: cost
+                  valueNumeric: 3000.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2023-11-01"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Oracle Database')"
+              - column:
+                  name: type
+                  value: "Perpetual"
+              - column:
+                  name: cost
+                  valueNumeric: 50000.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2023-03-20"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Kubernetes')"
+              - column:
+                  name: type
+                  value: "Apache-2.0"
+              - column:
+                  name: cost
+                  valueNumeric: 0.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2022-02-02"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Red Hat Enterprise Linux')"
+              - column:
+                  name: type
+                  value: "Subscription"
+              - column:
+                  name: cost
+                  valueNumeric: 349.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2024-02-14"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Docker Desktop')"
+              - column:
+                  name: type
+                  value: "Subscription"
+              - column:
+                  name: cost
+                  valueNumeric: 60.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2024-09-01"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Ubuntu')"
+              - column:
+                  name: type
+                  value: "GPL"
+              - column:
+                  name: cost
+                  valueNumeric: 0.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2020-10-20"
+        - insert:
+            tableName: license
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Jira Software')"
+              - column:
+                  name: type
+                  value: "Subscription"
+              - column:
+                  name: cost
+                  valueNumeric: 840.00
+              - column:
+                  name: purchase_date
+                  valueDate: "2024-07-07"

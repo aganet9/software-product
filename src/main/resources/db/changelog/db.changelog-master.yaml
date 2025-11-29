@@ -3,3 +3,13 @@ databaseChangeLog:
       path: db/changelog/2025/11/create
   - includeAll:
       path: db/changelog/2025/11/constraints
+  - include:
+      file: db/changelog/2025/11/insert/insert_developer.yml
+  - include:
+      file: db/changelog/2025/11/insert/insert_software_product.yml
+  - include:
+      file: db/changelog/2025/11/insert/insert_license.yml
+  - include:
+      file: db/changelog/2025/11/insert/insert_patch.yml
+  - include:
+      file: db/changelog/2025/11/insert/insert_system_requirement.yml

@@ -1,0 +1,293 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_system_requirement_seed_v2
+      author: aganethed
+      changes:
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'IntelliJ IDEA')"
+              - column:
+                  name: operating_system
+                  value: "Windows 11"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 2 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 8
+              - column:
+                  name: storage_min
+                  valueNumeric: 3
+              - column:
+                  name: graphics_card
+                  value: "Integrated"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'IntelliJ IDEA')"
+              - column:
+                  name: operating_system
+                  value: "Windows 11"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 4 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 16
+              - column:
+                  name: storage_min
+                  valueNumeric: 5
+              - column:
+                  name: graphics_card
+                  value: "Discrete or Integrated"
+              - column:
+                  name: requirement_type
+                  value: "RECOMMENDED"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'PyCharm')"
+              - column:
+                  name: operating_system
+                  value: "Windows 10+"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 2 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 8
+              - column:
+                  name: storage_min
+                  valueNumeric: 2
+              - column:
+                  name: graphics_card
+                  value: "Integrated"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Apache Maven')"
+              - column:
+                  name: operating_system
+                  value: "Any OS with JVM"
+              - column:
+                  name: cpu_min
+                  value: "x86_64"
+              - column:
+                  name: ram_min
+                  valueNumeric: 1
+              - column:
+                  name: storage_min
+                  valueNumeric: 1
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Apache Kafka')"
+              - column:
+                  name: operating_system
+                  value: "Linux"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 2 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 4
+              - column:
+                  name: storage_min
+                  valueNumeric: 10
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Visual Studio Code')"
+              - column:
+                  name: operating_system
+                  value: "Windows 10+"
+              - column:
+                  name: cpu_min
+                  value: "1.6 GHz"
+              - column:
+                  name: ram_min
+                  valueNumeric: 4
+              - column:
+                  name: storage_min
+                  valueNumeric: 2
+              - column:
+                  name: graphics_card
+                  value: "Integrated"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Microsoft SQL Server')"
+              - column:
+                  name: operating_system
+                  value: "Windows Server 2019+"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 4 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 8
+              - column:
+                  name: storage_min
+                  valueNumeric: 40
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Oracle Database')"
+              - column:
+                  name: operating_system
+                  value: "Linux"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 4 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 8
+              - column:
+                  name: storage_min
+                  valueNumeric: 60
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Kubernetes')"
+              - column:
+                  name: operating_system
+                  value: "Linux"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 2 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 2
+              - column:
+                  name: storage_min
+                  valueNumeric: 20
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Red Hat Enterprise Linux')"
+              - column:
+                  name: operating_system
+                  value: "x86_64"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 2 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 2
+              - column:
+                  name: storage_min
+                  valueNumeric: 15
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Docker Desktop')"
+              - column:
+                  name: operating_system
+                  value: "Windows 10+"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 2 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 8
+              - column:
+                  name: storage_min
+                  valueNumeric: 4
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"
+        - insert:
+            tableName: system_requirement
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Ubuntu')"
+              - column:
+                  name: operating_system
+                  value: "x86_64"
+              - column:
+                  name: cpu_min
+                  value: "x86_64, 2 cores"
+              - column:
+                  name: ram_min
+                  valueNumeric: 2
+              - column:
+                  name: storage_min
+                  valueNumeric: 15
+              - column:
+                  name: graphics_card
+                  value: "N/A"
+              - column:
+                  name: requirement_type
+                  value: "MINIMUM"

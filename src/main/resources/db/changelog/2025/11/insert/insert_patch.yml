@@ -1,0 +1,239 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_patch_seed_v2
+      author: aganethed
+      changes:
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'IntelliJ IDEA')"
+              - column:
+                  name: update_version
+                  value: "2024.2.1"
+              - column:
+                  name: release_date
+                  valueDate: "2024-08-15"
+              - column:
+                  name: changelog
+                  value: "Исправления стабильности и интеграций."
+              - column:
+                  name: critical_level
+                  value: "Important"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'IntelliJ IDEA')"
+              - column:
+                  name: update_version
+                  value: "2024.2.2"
+              - column:
+                  name: release_date
+                  valueDate: "2024-09-10"
+              - column:
+                  name: changelog
+                  value: "Обновления плагинов и производительности."
+              - column:
+                  name: critical_level
+                  value: "Optional"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Visual Studio Code')"
+              - column:
+                  name: update_version
+                  value: "1.90.0"
+              - column:
+                  name: release_date
+                  valueDate: "2024-06-05"
+              - column:
+                  name: changelog
+                  value: "ESM/TS улучшения, исправления багов."
+              - column:
+                  name: critical_level
+                  value: "Important"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Docker Desktop')"
+              - column:
+                  name: update_version
+                  value: "4.35.0"
+              - column:
+                  name: release_date
+                  valueDate: "2024-10-10"
+              - column:
+                  name: changelog
+                  value: "Улучшены образы BuildKit, обновлён Docker Engine."
+              - column:
+                  name: critical_level
+                  value: "Important"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Apache Maven')"
+              - column:
+                  name: update_version
+                  value: "3.9.7"
+              - column:
+                  name: release_date
+                  valueDate: "2024-04-20"
+              - column:
+                  name: changelog
+                  value: "Minor bugfixes."
+              - column:
+                  name: critical_level
+                  value: "Optional"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Kubernetes')"
+              - column:
+                  name: update_version
+                  value: "1.30.0"
+              - column:
+                  name: release_date
+                  valueDate: "2024-05-10"
+              - column:
+                  name: changelog
+                  value: "Security updates and feature gates changes."
+              - column:
+                  name: critical_level
+                  value: "Critical"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Ubuntu')"
+              - column:
+                  name: update_version
+                  value: "22.04.4"
+              - column:
+                  name: release_date
+                  valueDate: "2024-02-15"
+              - column:
+                  name: changelog
+                  value: "HWE stack updates, kernel fixes."
+              - column:
+                  name: critical_level
+                  value: "Important"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Jira Software')"
+              - column:
+                  name: update_version
+                  value: "9.15.0"
+              - column:
+                  name: release_date
+                  valueDate: "2024-07-20"
+              - column:
+                  name: changelog
+                  value: "Performance improvements and bug fixes."
+              - column:
+                  name: critical_level
+                  value: "Important"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'IntelliJ IDEA')"
+              - column:
+                  name: update_version
+                  value: "2024.3.0"
+              - column:
+                  name: release_date
+                  valueDate: "2024-11-20"
+              - column:
+                  name: changelog
+                  value: "Новые функции и улучшения UI."
+              - column:
+                  name: critical_level
+                  value: "Important"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Apache Kafka')"
+              - column:
+                  name: update_version
+                  value: "3.7.1"
+              - column:
+                  name: release_date
+                  valueDate: "2024-10-01"
+              - column:
+                  name: changelog
+                  value: "Bugfix release."
+              - column:
+                  name: critical_level
+                  value: "Optional"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Oracle Database')"
+              - column:
+                  name: update_version
+                  value: "19c RU 2024-10"
+              - column:
+                  name: release_date
+                  valueDate: "2024-10-17"
+              - column:
+                  name: changelog
+                  value: "Release Update including security fixes."
+              - column:
+                  name: critical_level
+                  value: "Critical"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Microsoft SQL Server')"
+              - column:
+                  name: update_version
+                  value: "2022 CU15"
+              - column:
+                  name: release_date
+                  valueDate: "2024-08-01"
+              - column:
+                  name: changelog
+                  value: "Cumulative update with bug fixes."
+              - column:
+                  name: critical_level
+                  value: "Important"
+        - insert:
+            tableName: patch
+            columns:
+              - column:
+                  name: product_id
+                  valueComputed: "(SELECT id FROM software_product WHERE name = 'Jira Software')"
+              - column:
+                  name: update_version
+                  value: "9.16.0"
+              - column:
+                  name: release_date
+                  valueDate: "2024-09-25"
+              - column:
+                  name: changelog
+                  value: "Security fixes and stability improvements."
+              - column:
+                  name: critical_level
+                  value: "Important"

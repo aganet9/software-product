@@ -1,0 +1,257 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_software_product_seed_v2
+      author: aganethed
+      changes:
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'JetBrains s.r.o.')"
+              - column:
+                  name: name
+                  value: "IntelliJ IDEA"
+              - column:
+                  name: description
+                  value: "IDE для JVM и множества языков."
+              - column:
+                  name: release_date
+                  valueDate: "2001-01-01"
+              - column:
+                  name: software_type
+                  value: "Development Tool"
+              - column:
+                  name: distribution_model
+                  value: "Commercial"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'JetBrains s.r.o.')"
+              - column:
+                  name: name
+                  value: "PyCharm"
+              - column:
+                  name: description
+                  value: "IDE для Python."
+              - column:
+                  name: release_date
+                  valueDate: "2010-07-01"
+              - column:
+                  name: software_type
+                  value: "Development Tool"
+              - column:
+                  name: distribution_model
+                  value: "Commercial"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'The Apache Software Foundation')"
+              - column:
+                  name: name
+                  value: "Apache Maven"
+              - column:
+                  name: description
+                  value: "Инструмент автоматизации сборки проектов."
+              - column:
+                  name: release_date
+                  valueDate: "2004-07-13"
+              - column:
+                  name: software_type
+                  value: "Development Tool"
+              - column:
+                  name: distribution_model
+                  value: "Open Source"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'The Apache Software Foundation')"
+              - column:
+                  name: name
+                  value: "Apache Kafka"
+              - column:
+                  name: description
+                  value: "Распределённая платформа потоковой передачи сообщений."
+              - column:
+                  name: release_date
+                  valueDate: "2011-01-01"
+              - column:
+                  name: software_type
+                  value: "System"
+              - column:
+                  name: distribution_model
+                  value: "Open Source"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Microsoft Corporation')"
+              - column:
+                  name: name
+                  value: "Visual Studio Code"
+              - column:
+                  name: description
+                  value: "Расширяемый редактор кода."
+              - column:
+                  name: release_date
+                  valueDate: "2015-04-29"
+              - column:
+                  name: software_type
+                  value: "Development Tool"
+              - column:
+                  name: distribution_model
+                  value: "Freemium"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Microsoft Corporation')"
+              - column:
+                  name: name
+                  value: "Microsoft SQL Server"
+              - column:
+                  name: description
+                  value: "Реляционная СУБД."
+              - column:
+                  name: release_date
+                  valueDate: "1989-06-12"
+              - column:
+                  name: software_type
+                  value: "Database"
+              - column:
+                  name: distribution_model
+                  value: "Commercial"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Oracle Corporation')"
+              - column:
+                  name: name
+                  value: "Oracle Database"
+              - column:
+                  name: description
+                  value: "Реляционная СУБД корпоративного уровня."
+              - column:
+                  name: release_date
+                  valueDate: "1979-01-01"
+              - column:
+                  name: software_type
+                  value: "Database"
+              - column:
+                  name: distribution_model
+                  value: "Commercial"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Google LLC')"
+              - column:
+                  name: name
+                  value: "Kubernetes"
+              - column:
+                  name: description
+                  value: "Система оркестрации контейнеров."
+              - column:
+                  name: release_date
+                  valueDate: "2015-07-21"
+              - column:
+                  name: software_type
+                  value: "System"
+              - column:
+                  name: distribution_model
+                  value: "Open Source"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Red Hat, Inc.' )"
+              - column:
+                  name: name
+                  value: "Red Hat Enterprise Linux"
+              - column:
+                  name: description
+                  value: "Корпоративная Linux-платформа."
+              - column:
+                  name: release_date
+                  valueDate: "2002-05-07"
+              - column:
+                  name: software_type
+                  value: "Operating System"
+              - column:
+                  name: distribution_model
+                  value: "Commercial"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Docker, Inc.')"
+              - column:
+                  name: name
+                  value: "Docker Desktop"
+              - column:
+                  name: description
+                  value: "Инструменты контейнеризации для разработчиков."
+              - column:
+                  name: release_date
+                  valueDate: "2019-07-22"
+              - column:
+                  name: software_type
+                  value: "Development Tool"
+              - column:
+                  name: distribution_model
+                  value: "Freemium"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Canonical Ltd.' )"
+              - column:
+                  name: name
+                  value: "Ubuntu"
+              - column:
+                  name: description
+                  value: "Операционная система на базе Linux."
+              - column:
+                  name: release_date
+                  valueDate: "2004-10-20"
+              - column:
+                  name: software_type
+                  value: "Operating System"
+              - column:
+                  name: distribution_model
+                  value: "Open Source"
+        - insert:
+            tableName: software_product
+            columns:
+              - column:
+                  name: developer_id
+                  valueComputed: "(SELECT id FROM developer WHERE company_name = 'Atlassian Pty Ltd' )"
+              - column:
+                  name: name
+                  value: "Jira Software"
+              - column:
+                  name: description
+                  value: "Система управления задачами и проектами."
+              - column:
+                  name: release_date
+                  valueDate: "2002-02-01"
+              - column:
+                  name: software_type
+                  value: "Application"
+              - column:
+                  name: distribution_model
+                  value: "Commercial"
