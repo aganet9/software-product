@@ -21,7 +21,7 @@ import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 
 @Route("licenses")
 @PageTitle("Лицензии")
-@Menu(order = 2, icon = "vaadin:clipboard-check", title = "Лицензии")
+@Menu(order = 2, icon = "vaadin:file-text", title = "Лицензии")
 public class LicenseView extends BaseCrudView<LicenseGrid, LicenseForm, Long, LicenseService> {
     private final transient SoftwareProductService softwareProductService;
 

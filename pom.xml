@@ -85,6 +85,10 @@
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-dashboard-flow</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-charts-flow</artifactId>
+        </dependency>
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

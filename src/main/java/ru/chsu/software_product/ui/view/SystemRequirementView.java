@@ -39,7 +39,9 @@ public class SystemRequirementView extends BaseCrudView<SystemRequirementGrid, S
 
         grid.addColumn(SystemRequirementGrid::getProductName).setHeader("Программное обеспечение");
 
-        grid.addColumn(SystemRequirementGrid::getRequirementType).setHeader("Тип требования");
+        grid.addColumn(item -> item.getRequirementType() != null
+                ? item.getRequirementType().getDisplayName()
+                : "") .setHeader("Тип требования");
 
         grid.addColumn(SystemRequirementGrid::getOperatingSystem).setHeader("Операционная система");
 

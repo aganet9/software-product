@@ -18,7 +18,7 @@ import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 
 @Route("products")
 @PageTitle("Программное обеспечение")
-@Menu(order = 1, icon = "vaadin:clipboard-check", title = "Программное обеспечение")
+@Menu(order = 1, icon = "vaadin:cubes", title = "Программное обеспечение")
 public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, SoftwareProductForm, Long, SoftwareProductService> {
     private final transient DeveloperService developerService;
 

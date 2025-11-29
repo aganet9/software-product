@@ -18,7 +18,7 @@ import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 
 @Route("patches")
 @PageTitle("Обновления")
-@Menu(order = 2, icon = "vaadin:clipboard-check", title = "Обновления")
+@Menu(order = 3, icon = "vaadin:upload", title = "Обновления")
 public class PatchView extends BaseCrudView<PatchGrid, PatchForm, Long, PatchService> {
     private final transient SoftwareProductService softwareProductService;
 

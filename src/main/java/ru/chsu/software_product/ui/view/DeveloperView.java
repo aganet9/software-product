@@ -13,9 +13,9 @@ import ru.chsu.software_product.service.DeveloperService;
 import java.util.Comparator;
 import static ru.chsu.software_product.ui.view.factory.ComponentFactory.createTextField;
 
-@Route("")
+@Route("developers")
 @PageTitle("Разработчики")
-@Menu(order = 0, icon = "vaadin:clipboard-check", title = "Разработчики")
+@Menu(order = 0, icon = "vaadin:users", title = "Разработчики")
 public class DeveloperView extends BaseCrudView<DeveloperGrid, DeveloperForm, Long, DeveloperService> {
     @Autowired
     public DeveloperView(DeveloperService developerService, ExceptionHandler exceptionHandler) {
