@@ -14,7 +14,7 @@ import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import ru.chsu.software_product.model.dto.DashboardStats;
 import ru.chsu.software_product.service.DashboardService;
 
@@ -29,7 +29,6 @@ public class DashboardView extends Main {
 
     private final DashboardService dashboardService;
 
-    @Autowired
     public DashboardView(DashboardService dashboardService) {
         this.dashboardService = dashboardService;
         initializeUI();
@@ -65,7 +64,8 @@ public class DashboardView extends Main {
         kpiSection.add(patchesWidget);
 
         DashboardWidget requirementWidget = new DashboardWidget("Системные требования");
-        requirementWidget.setContent(createKpiCard("Системные требования", stats.getTotalRequirements(), VaadinIcon.CLIPBOARD_CHECK));
+        requirementWidget.setContent(
+                createKpiCard("Системные требования", stats.getTotalRequirements(), VaadinIcon.CLIPBOARD_CHECK));
         kpiSection.add(requirementWidget);
 
         // Секция с графиками
@@ -99,8 +99,7 @@ public class DashboardView extends Main {
                 Display.FLEX,
                 FlexDirection.COLUMN,
                 AlignItems.CENTER,
-                Gap.MEDIUM
-        );
+                Gap.MEDIUM);
 
         Icon cardIcon = icon.create();
         cardIcon.addClassNames(IconSize.LARGE, TextColor.PRIMARY);
@@ -161,12 +160,10 @@ public class DashboardView extends Main {
         conf.addyAxis(yAxis);
 
         DataSeries series = new DataSeries("Продукты");
-        int index = 0;
         for (Long value : data.values()) {
             DataSeriesItem item = new DataSeriesItem();
             item.setY(value);
             series.add(item);
-            index++;
         }
         conf.addSeries(series);
 
@@ -188,12 +185,10 @@ public class DashboardView extends Main {
         conf.addyAxis(yAxis);
 
         DataSeries series = new DataSeries("Лицензии");
-        int index = 0;
         for (Long value : data.values()) {
             DataSeriesItem item = new DataSeriesItem();
             item.setY(value);
             series.add(item);
-            index++;
         }
         conf.addSeries(series);
 

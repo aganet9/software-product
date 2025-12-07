@@ -7,7 +7,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import ru.chsu.software_product.exception.ExceptionHandler;
 import ru.chsu.software_product.model.dto.DeveloperGrid;
 import ru.chsu.software_product.model.dto.SoftwareProductForm;
@@ -19,13 +19,13 @@ import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 @Route("products")
 @PageTitle("Программное обеспечение")
 @Menu(order = 1, icon = "vaadin:cubes", title = "Программное обеспечение")
-public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, SoftwareProductForm, Long, SoftwareProductService> {
+public class SoftwareProductView
+        extends BaseCrudView<SoftwareProductGrid, SoftwareProductForm, Long, SoftwareProductService> {
     private final transient DeveloperService developerService;
 
-    @Autowired
     public SoftwareProductView(SoftwareProductService softwareProductService,
-                               ExceptionHandler exceptionHandler,
-                               DeveloperService developerService) {
+            ExceptionHandler exceptionHandler,
+            DeveloperService developerService) {
         super(softwareProductService, exceptionHandler);
         this.developerService = developerService;
         initializeUI("Программное обеспечение");
@@ -102,14 +102,13 @@ public class SoftwareProductView extends BaseCrudView<SoftwareProductGrid, Softw
                         }
 
                         refreshGrid();
-                        dialog.close();
+                        closeDialog();
                     } catch (Exception ex) {
                         exceptionHandler.handleException(ex);
                     }
                 },
-                e -> dialog.close(),
+                e -> closeDialog(),
                 cbCompanyName, productName, productDescription, dpReleaseDate, productSoftwareType,
-                productDistributionModel
-        );
+                productDistributionModel);
     }
 }

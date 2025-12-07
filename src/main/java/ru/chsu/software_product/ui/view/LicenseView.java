@@ -9,7 +9,7 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import ru.chsu.software_product.exception.ExceptionHandler;
 import ru.chsu.software_product.model.dto.LicenseForm;
 import ru.chsu.software_product.model.dto.LicenseGrid;
@@ -25,10 +25,9 @@ import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 public class LicenseView extends BaseCrudView<LicenseGrid, LicenseForm, Long, LicenseService> {
     private final transient SoftwareProductService softwareProductService;
 
-    @Autowired
     public LicenseView(LicenseService licenseService,
-                       ExceptionHandler exceptionHandler,
-                       SoftwareProductService softwareProductService) {
+            ExceptionHandler exceptionHandler,
+            SoftwareProductService softwareProductService) {
         super(licenseService, exceptionHandler);
         this.softwareProductService = softwareProductService;
         initializeUI("Лицензии");
@@ -66,8 +65,7 @@ public class LicenseView extends BaseCrudView<LicenseGrid, LicenseForm, Long, Li
         binder.forField(cost)
                 .withConverter(
                         value -> value == null ? null : BigDecimal.valueOf(value),
-                        bd -> bd == null ? null : bd.doubleValue()
-                )
+                        bd -> bd == null ? null : bd.doubleValue())
                 .withValidator(c -> c.compareTo(BigDecimal.ZERO) >= 0,
                         "Цена не может быть отрицательной")
                 .bind(LicenseGrid::getCost, LicenseGrid::setCost);
@@ -107,13 +105,12 @@ public class LicenseView extends BaseCrudView<LicenseGrid, LicenseForm, Long, Li
                         }
 
                         refreshGrid();
-                        dialog.close();
+                        closeDialog();
                     } catch (Exception ex) {
                         exceptionHandler.handleException(ex);
                     }
                 },
-                e -> dialog.close(),
-                cbSoftwareProduct, type, cost, purchaseDate
-        );
+                e -> closeDialog(),
+                cbSoftwareProduct, type, cost, purchaseDate);
     }
 }

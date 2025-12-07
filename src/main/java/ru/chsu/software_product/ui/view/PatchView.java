@@ -7,7 +7,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import ru.chsu.software_product.exception.ExceptionHandler;
 import ru.chsu.software_product.model.dto.PatchForm;
 import ru.chsu.software_product.model.dto.PatchGrid;
@@ -22,10 +22,9 @@ import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 public class PatchView extends BaseCrudView<PatchGrid, PatchForm, Long, PatchService> {
     private final transient SoftwareProductService softwareProductService;
 
-    @Autowired
     public PatchView(PatchService patchService,
-                     SoftwareProductService softwareProductService,
-                     ExceptionHandler exceptionHandler) {
+            SoftwareProductService softwareProductService,
+            ExceptionHandler exceptionHandler) {
         super(patchService, exceptionHandler);
         this.softwareProductService = softwareProductService;
         initializeUI("Обновления");
@@ -94,13 +93,12 @@ public class PatchView extends BaseCrudView<PatchGrid, PatchForm, Long, PatchSer
                         }
 
                         refreshGrid();
-                        dialog.close();
+                        closeDialog();
                     } catch (Exception ex) {
                         exceptionHandler.handleException(ex);
                     }
                 },
-                e -> dialog.close(),
-                cbSoftwareProduct, updateVersion, releaseDate, changeLog, criticalLevel
-        );
+                e -> closeDialog(),
+                cbSoftwareProduct, updateVersion, releaseDate, changeLog, criticalLevel);
     }
 }

@@ -7,7 +7,7 @@ import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import ru.chsu.software_product.exception.ExceptionHandler;
 import ru.chsu.software_product.model.RequirementType;
 import ru.chsu.software_product.model.dto.SoftwareProductGrid;
@@ -20,14 +20,13 @@ import static ru.chsu.software_product.ui.view.factory.ComponentFactory.*;
 @Route("systemRequirements")
 @PageTitle("Системные требования")
 @Menu(order = 4, icon = "vaadin:clipboard-check", title = "Системные требования")
-public class SystemRequirementView extends BaseCrudView<SystemRequirementGrid, SystemRequirementForm, Long,
-        SystemRequirementService> {
+public class SystemRequirementView
+        extends BaseCrudView<SystemRequirementGrid, SystemRequirementForm, Long, SystemRequirementService> {
     private final transient SoftwareProductService softwareProductService;
 
-    @Autowired
     public SystemRequirementView(SystemRequirementService systemRequirementService,
-                                 SoftwareProductService softwareProductService,
-                                 ExceptionHandler exceptionHandler) {
+            SoftwareProductService softwareProductService,
+            ExceptionHandler exceptionHandler) {
         super(systemRequirementService, exceptionHandler);
         this.softwareProductService = softwareProductService;
         initializeUI("Системные требования");
@@ -41,7 +40,7 @@ public class SystemRequirementView extends BaseCrudView<SystemRequirementGrid, S
 
         grid.addColumn(item -> item.getRequirementType() != null
                 ? item.getRequirementType().getDisplayName()
-                : "") .setHeader("Тип требования");
+                : "").setHeader("Тип требования");
 
         grid.addColumn(SystemRequirementGrid::getOperatingSystem).setHeader("Операционная система");
 
@@ -114,14 +113,13 @@ public class SystemRequirementView extends BaseCrudView<SystemRequirementGrid, S
                         }
 
                         refreshGrid();
-                        dialog.close();
+                        closeDialog();
                     } catch (Exception ex) {
                         exceptionHandler.handleException(ex);
                     }
                 },
-                e -> dialog.close(),
-                cbSoftwareProduct, cbRequirementType, operatingSystem, cpuMin, ramMin, storageMin, graphicsCard
-        );
+                e -> closeDialog(),
+                cbSoftwareProduct, cbRequirementType, operatingSystem, cpuMin, ramMin, storageMin, graphicsCard);
 
     }
 }
