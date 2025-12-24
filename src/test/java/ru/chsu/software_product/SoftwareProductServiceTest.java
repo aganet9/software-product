@@ -77,7 +77,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should map and return all products as grids")
+    @DisplayName("findAll: маппит и возвращает все продукты")
     void findAll_mapsAndReturns() {
         given(softwareProductRepository.findAll()).willReturn(List.of(product));
         given(softwareProductMapper.toGrid(product)).willReturn(grid);
@@ -90,7 +90,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should find by id and map to grid")
+    @DisplayName("findById: успех")
     void findById_success() {
         given(softwareProductRepository.findById(1L)).willReturn(Optional.of(product));
         given(softwareProductMapper.toGrid(product)).willReturn(grid);
@@ -103,7 +103,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw when product not found by id")
+    @DisplayName("findById: продукт не найден -> исключение")
     void findById_notFound() {
         given(softwareProductRepository.findById(99L)).willReturn(Optional.empty());
 
@@ -113,7 +113,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should create product when developer exists and name unique")
+    @DisplayName("create: разработчик существует и имя уникально -> успех")
     void create_success() {
         given(developerRepository.findByCompanyName("Acme")).willReturn(Optional.of(developer));
         given(softwareProductRepository.existsSoftwareProductByName("Prod")).willReturn(false);
@@ -132,7 +132,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on create when developer not found")
+    @DisplayName("create: разработчик не найден -> исключение")
     void create_developerNotFound_throws() {
         given(developerRepository.findByCompanyName("Acme")).willReturn(Optional.empty());
 
@@ -144,7 +144,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on create when product name already exists")
+    @DisplayName("create: имя продукта уже существует -> исключение")
     void create_nameExists_throws() {
         given(developerRepository.findByCompanyName("Acme")).willReturn(Optional.of(developer));
         given(softwareProductRepository.existsSoftwareProductByName("Prod")).willReturn(true);
@@ -157,7 +157,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should update product; name unchanged and developer unchanged")
+    @DisplayName("update: имя и разработчик без изменений -> успех")
     void update_success_whenNameAndDeveloperUnchanged() {
         SoftwareProductForm updateForm = new SoftwareProductForm();
         updateForm.setName("Prod");
@@ -189,7 +189,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should validate unique name when changed on update")
+    @DisplayName("update: проверка уникальности имени при изменении")
     void update_validatesNameWhenChanged() {
         SoftwareProductForm updateForm = new SoftwareProductForm();
         updateForm.setName("NewProd");
@@ -215,7 +215,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should reassign developer when changed on update")
+    @DisplayName("update: смена разработчика -> переустановка ссылки")
     void update_reassignsDeveloperWhenChanged() {
         SoftwareProductForm updateForm = new SoftwareProductForm();
         updateForm.setName("Prod");
@@ -246,7 +246,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on update when product not found")
+    @DisplayName("update: продукт не найден -> исключение")
     void update_notFound_throws() {
         given(developerRepository.findByCompanyName("Acme")).willReturn(Optional.of(developer));
         given(softwareProductRepository.findById(1L)).willReturn(Optional.empty());
@@ -258,7 +258,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on update when new name already exists")
+    @DisplayName("update: новое имя уже существует -> исключение")
     void update_nameExists_throws() {
         SoftwareProductForm updateForm = new SoftwareProductForm();
         updateForm.setName("NewProd");
@@ -278,7 +278,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should delete existing product by id")
+    @DisplayName("delete: успех")
     void delete_success() {
         given(softwareProductRepository.findById(1L)).willReturn(Optional.of(product));
 
@@ -289,7 +289,7 @@ class SoftwareProductServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on delete when product not found")
+    @DisplayName("delete: продукт не найден -> исключение")
     void delete_notFound_throws() {
         given(softwareProductRepository.findById(1L)).willReturn(Optional.empty());
 

@@ -59,7 +59,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should map and return all developers as grids")
+    @DisplayName("findAll: маппит и возвращает всех разработчиков")
     void findAll_mapsAndReturns() {
         given(developerRepository.findAll()).willReturn(List.of(developer));
         given(developerMapper.toGrid(developer)).willReturn(grid);
@@ -72,7 +72,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should find by id and map to grid")
+    @DisplayName("findById: успех")
     void findById_success() {
         given(developerRepository.findById(1L)).willReturn(Optional.of(developer));
         given(developerMapper.toGrid(developer)).willReturn(grid);
@@ -85,7 +85,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw when developer not found by id")
+    @DisplayName("findById: разработчик не найден -> исключение")
     void findById_notFound() {
         given(developerRepository.findById(99L)).willReturn(Optional.empty());
 
@@ -95,7 +95,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should create developer when company name unique")
+    @DisplayName("create: ун��кальное название компании -> успех")
     void create_success_whenCompanyNameUnique() {
         given(developerRepository.existsDeveloperByCompanyName("Acme")).willReturn(false);
         given(developerMapper.toEntityForm(form)).willReturn(developer);
@@ -112,7 +112,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on create when company name already exists")
+    @DisplayName("create: название компании уже существует -> исключение")
     void create_duplicateCompanyName_throws() {
         given(developerRepository.existsDeveloperByCompanyName("Acme")).willReturn(true);
 
@@ -123,7 +123,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should update developer and save when name unchanged")
+    @DisplayName("update: обновление без смены названия -> успех")
     void update_success_whenNameUnchanged() {
         DeveloperForm updateForm = new DeveloperForm();
         updateForm.setCompanyName("Acme");
@@ -152,7 +152,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should validate unique company name on update when changed")
+    @DisplayName("update: проверка уникальности при смене названия")
     void update_validatesNameWhenChanged() {
         DeveloperForm updateForm = new DeveloperForm();
         updateForm.setCompanyName("NewCo");
@@ -175,7 +175,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on update when developer not found")
+    @DisplayName("update: разработчи�� не найден -> исключение")
     void update_notFound_throws() {
         given(developerRepository.findById(1L)).willReturn(Optional.empty());
 
@@ -185,7 +185,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on update when new name already exists")
+    @DisplayName("update: новое название уже существует -> исключение")
     void update_nameExists_throws() {
         DeveloperForm updateForm = new DeveloperForm();
         updateForm.setCompanyName("NewCo");
@@ -202,7 +202,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should delete existing developer by id")
+    @DisplayName("delete: успех")
     void delete_success() {
         given(developerRepository.findById(1L)).willReturn(Optional.of(developer));
 
@@ -213,7 +213,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("Should throw on delete when developer not found")
+    @DisplayName("delete: разработчик не найден -> исключение")
     void delete_notFound_throws() {
         given(developerRepository.findById(1L)).willReturn(Optional.empty());
 
