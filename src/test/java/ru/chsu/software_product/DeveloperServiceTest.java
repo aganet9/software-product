@@ -95,7 +95,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("create: ун��кальное название компании -> успех")
+    @DisplayName("create: уникальное название компании -> успех")
     void create_success_whenCompanyNameUnique() {
         given(developerRepository.existsDeveloperByCompanyName("Acme")).willReturn(false);
         given(developerMapper.toEntityForm(form)).willReturn(developer);
@@ -175,7 +175,7 @@ class DeveloperServiceTest {
     }
 
     @Test
-    @DisplayName("update: разработчи�� не найден -> исключение")
+    @DisplayName("update: разработчик не найден -> исключение")
     void update_notFound_throws() {
         given(developerRepository.findById(1L)).willReturn(Optional.empty());
 
